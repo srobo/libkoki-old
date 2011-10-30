@@ -14,6 +14,6 @@ test/depend: src/*.c
 tests: $(TEST_BINS)
 
 $(TEST_BINS): % : %.o lib/libkoki.so
-	$(CC) $(LDFLAGS) -lkoki -o $@ $<
+	$(CC) $< -lkoki $(LDFLAGS) -o $@
 
 test/%.o: test/%.c

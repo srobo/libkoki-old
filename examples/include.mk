@@ -18,10 +18,10 @@ examples/depend: src/*.c
 examples: $(EXAMPLE_BINS) $(GL_EXAMPLE_BINS)
 
 $(EXAMPLE_BINS): % : %.o lib/libkoki.so
-	$(CC) $(LDFLAGS) -lkoki -o $@ $<
+	$(CC) $< -lkoki $(LDFLAGS) -o $@
 
 $(GL_EXAMPLE_BINS): % : %.o lib/libkoki.so
-	$(CC) $(LDFLAGS) $(GL_LDFLAGS) -lkoki -o $@ $<
+	$(CC) $< -lkoki $(LDFLAGS) $(GL_LDFLAGS) -o $@
 
 examples/realtime_gl.o: examples/realtime_gl.c
 	$(CC) $(CFLAGS) $(GL_CFLAGS) -c -o $@ $^

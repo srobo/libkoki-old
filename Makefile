@@ -7,7 +7,7 @@ CFLAGS += -I. -I./include
 
 CLEAN :=
 
-CFLAGS+=`pkg-config --cflags glib-2.0 opencv`
+CFLAGS+= `pkg-config --cflags glib-2.0 opencv | sed "s/-I/-isystem/g"`
 LDFLAGS+=`pkg-config --libs glib-2.0 opencv`
 
 world: solib examples tests

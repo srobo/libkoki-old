@@ -16,6 +16,9 @@ include */include.mk
 
 all: solib examples tests docs docs_latex bugs_html AUTHORS
 
+install:
+	cp lib/libkoki.so /usr/lib/libkoki.so
+
 AUTHORS: tools/generate_authors
 	tools/generate_authors AUTHORS
 
